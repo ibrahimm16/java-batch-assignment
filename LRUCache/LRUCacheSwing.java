@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class LRUCacheSwing {
 
-    final int maxCharacters = 10;
+    final int CACHE_SIZE = 10;
     // UI
     boolean running = true;
     Display display;
@@ -47,7 +47,7 @@ public class LRUCacheSwing {
                 keyList.add(k);
                 keyMap.put(k, keyMap.getOrDefault(k, 0) + 1);
                 // If the list is at capacity, removes the oldest element from the keyList and keyMap
-                if (keyList.size() > maxCharacters) {
+                if (keyList.size() > CACHE_SIZE) {
                     keyMap.remove(keyList.get(0));
                     keyList.remove(0);
                 }
