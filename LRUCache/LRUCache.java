@@ -6,7 +6,7 @@ public class LRUCache {
 
     LinkedList<Character> keyList;
     Map<Character, Integer> keyMap;
-    final int maxCharacters = 10;
+    final int CACHE_SIZE = 10;
 
     LRUCache() {
         keyList = new LinkedList<>();
@@ -22,7 +22,7 @@ public class LRUCache {
         keyList.add(key);
         keyMap.put(key, value+1);
 
-        if (keyList.size() > maxCharacters) {
+        if (keyList.size() > CACHE_SIZE) {
             Character toRemove = keyList.get(0);
             keyList.remove(toRemove);
             keyMap.remove(toRemove);
