@@ -12,6 +12,8 @@ public class Test {
 
     public static void main(String[] args) {
         DBConfig dbConfig = new DBConfig();
+
+        removeTeam(dbConfig.getEntityManager(), 1);
     }
 
     static void addTeam(EntityManager entityManager, String name) {
@@ -40,6 +42,7 @@ public class Test {
         entityManager.persist(athlete);
 
         team.getAthletes().add(athlete);
+        entityManager.persist(team);
 
         transaction.commit();
     }
@@ -62,7 +65,7 @@ public class Test {
     }
 
     static Object getEntity(EntityManager entityManager, String table, long id) {
-        return entityManager.createQuery("SELECT e FROM " + table + " e WHERE " + table.toLowerCase() + "_id="+id).getSingleResult();
+        return entityManager.createQuery("SELECT e FROM " + table + " e WHERE e.id="+id).getSingleResult();
     }
 
     static List<Object> getEntities(EntityManager entityManager, String table) {
@@ -73,9 +76,7 @@ public class Test {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        entityManager.createQuery("DELETE FROM Team t WHERE team_id="+id).executeUpdate();
-        entityManager.createQuery("DELETE FROM Team_Athlete t WHERE team_id="+id).executeUpdate();
-        entityManager.createQuery("DELETE FROM Athlete a WHERE team_id="+id).executeUpdate();
+        entityManager.createQuery("DELETE FROM Team t WHERE t.id="+id).executeUpdate();
 
         transaction.commit();
     }
@@ -84,8 +85,7 @@ public class Test {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        entityManager.createQuery("DELETE FROM Athlete a WHERE athlete_id="+id).executeUpdate();
-        entityManager.createQuery("DELETE FROM Team_Athlete t WHERE athlete_id="+id).executeUpdate();
+        entityManager.createQuery("DELETE FROM Athlete a WHERE a.id="+id).executeUpdate();
 
         transaction.commit();
     }
@@ -94,7 +94,7 @@ public class Test {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        entityManager.createQuery("DELETE FROM Team_Athlete t WHERE team_athlete_id="+id).executeUpdate();
+        entityManager.createQuery("DELETE FROM Team_Athlete t WHERE t.id="+id).executeUpdate();
 
         transaction.commit();
     }
