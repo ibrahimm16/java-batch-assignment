@@ -19,7 +19,7 @@ public class DBConfig {
     private Properties properties;
     private EntityManagerFactory factory;
     private EntityManager entityManager;
-    PersistenceUnitUtil unitUtil;
+    private PersistenceUnitUtil unitUtil;
 
     DBConfig() {
         setDataSource();
@@ -40,12 +40,12 @@ public class DBConfig {
     private void setProperties() {
         final Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.put("hibernate.connection.driver_class", "org.postgresql.Driver");
+        properties.put("hibernate.connection.driver_class", "org.MySQL.Driver");
         this.properties = properties;
     }
 
     private void setEntityManagerFactory(DataSource source, Properties properties) {
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setDataSource(source);
         factory.setPackagesToScan("hibernate/entities");
         factory.setJpaVendorAdapter( new HibernateJpaVendorAdapter() );
