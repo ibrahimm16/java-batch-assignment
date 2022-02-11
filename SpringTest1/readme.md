@@ -3,7 +3,7 @@
 	
 		1. Team((pk) id, name)
 		2. Athlete((pk) id, name)
-		3. Team_Athlete((pk) id, (fk)team_id, (fk)athlete_id)
+		3. Team_Athlete((pk) id, (fk) team_id, (fk) athlete_id)
 
 # Rest
 	Controllers
