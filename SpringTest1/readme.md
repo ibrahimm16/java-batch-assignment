@@ -14,6 +14,7 @@
 			5. addAthlete() PUT /teams/{id}/{athleteId}
 			6. updateTeam() PUT /teams/{id} RequestBody Team
 			7. deleteTeam() DELETE /teams/{id}
+			
 		2. Athlete Controller
 			1. getAllAthletes() GET /athletes
 			2. getAthlete() GET /athletes/{id}
