@@ -1,25 +1,25 @@
-Database
-	Tables
+# Database
+	## Tables
 		- Team((pk) id, name)
 		- Athlete((pk) id, name)
 		- Team_Athlete((pk) id, (fk)team_id, (fk)athlete_id)
 
-Rest
-	Controllers
-		- Team Controller
-			- getAllTeams() GET /teams
-			- getTeam() GET /teams/{id}
-			- getAthletes() GET /teams/{id}/athletes
-			- addTeam() POST /teams RequestBody Team
-			- addAthlete() PUT /teams/{id}/{athleteId}
-			- updateTeam() PUT /teams/{id} RequestBody Team
-			- deleteTeam() DELETE /teams/{id}
-		- Athlete Controller
-			- getAllAthletes() GET /athletes
-			- getAthlete() GET /athletes/{id}
-			- getTeams() GET /athletes/{id}/teams
-			- addAthlete() POST /athletes RequestBody Athlete
-			- addTeam() PUT /athletes/{id}/{teamId}
-			- updateAthlete() PUT /athletes/{id} RequestBody Athlete
-			- deleteAthlete() DELETE /athletes/{id}
+# Rest
+	## Controllers
+		1. Team Controller
+			1. getAllTeams() GET /teams
+			2. getTeam() GET /teams/{id}
+			3. getAthletes() GET /teams/{id}/athletes
+			4. addTeam() POST /teams RequestBody Team
+			5. addAthlete() PUT /teams/{id}/{athleteId}
+			6. updateTeam() PUT /teams/{id} RequestBody Team
+			7. deleteTeam() DELETE /teams/{id}
+		2. Athlete Controller
+			1. getAllAthletes() GET /athletes
+			2. getAthlete() GET /athletes/{id}
+			3. getTeams() GET /athletes/{id}/teams
+			4. addAthlete() POST /athletes RequestBody Athlete
+			5. addTeam() PUT /athletes/{id}/{teamId}
+			6. updateAthlete() PUT /athletes/{id} RequestBody Athlete
+			7. deleteAthlete() DELETE /athletes/{id}
 			
