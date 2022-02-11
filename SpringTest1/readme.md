@@ -1,11 +1,11 @@
 # Database
-	## Tables
+	Tables
 		- Team((pk) id, name)
 		- Athlete((pk) id, name)
 		- Team_Athlete((pk) id, (fk)team_id, (fk)athlete_id)
 
 # Rest
-	## Controllers
+	Controllers
 		1. Team Controller
 			1. getAllTeams() GET /teams
 			2. getTeam() GET /teams/{id}
